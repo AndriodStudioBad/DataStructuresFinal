@@ -40,7 +40,7 @@ public class TreeBall {
     }
     
     
-    private static String createBitString(int level){
+    private static String createBitString(int level){ //currently unused, might be needed later
         String r = Integer.toBinaryString(level);
         while(r.length() < level){
             r = '0' + r;
@@ -52,6 +52,7 @@ public class TreeBall {
         if(levels <= level){ return null; }
         //level--;
         Node r = head;
+        if(level == 0){return head; }
         while(level > -1){
             if(level > num){
                 r = r.getLeftChild();
@@ -97,7 +98,6 @@ public class TreeBall {
                 }
             }
             r += '\n';
-            //System.out.println(i + ", \n" + r);
         }
         return r;
     }
