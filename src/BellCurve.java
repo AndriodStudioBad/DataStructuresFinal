@@ -5,12 +5,26 @@ import java.util.logging.Logger;
 public class BellCurve extends javax.swing.JFrame {
 
     private int d;
+    private final double coefficient;
     
     public BellCurve() {
         initComponents();
         d = 300;
         Thread t = new Thread(ball_one);
+        Thread t2 = new Thread(ball_two);
+        Thread t3 = new Thread(ball_three);
+        Thread t4 = new Thread(ball_four);
+        Thread t5 = new Thread(ball_five);
+        Thread t6 = new Thread(ball_six);
+        
         t.start();
+        t2.start();
+        t3.start();
+        t4.start();
+        t5.start();
+        t6.start();
+        
+        coefficient = (1/22.50);
     }
 
     Runnable ball_one = new Runnable(){
@@ -19,6 +33,36 @@ public class BellCurve extends javax.swing.JFrame {
             }
         };
     
+    Runnable ball_two = new Runnable(){
+            public void run(){
+                ballTwoFall();                
+            }
+        };
+    
+    Runnable ball_three = new Runnable(){
+            public void run(){
+                ballThreeFall();                
+            }
+        };
+    
+    Runnable ball_four = new Runnable(){
+            public void run(){
+                ballFourFall();                
+            }
+        };
+    
+    Runnable ball_five = new Runnable(){
+            public void run(){
+                ballFiveFall();                
+            }
+        };
+    
+    Runnable ball_six = new Runnable(){
+            public void run(){
+                ballSixFall();                
+            }
+        };
+
     private void ballOneFall()
     {
         String output = "";
@@ -27,42 +71,403 @@ public class BellCurve extends javax.swing.JFrame {
         double x = 0;
         int counter = 0;
         int levels = 0; 
-        int xLoc = ball1.getX();
-        double xAmount = 0;
+        double calc = 0; 
+        
         for(int i = 0; i < (3000); i++)
         {
             while(levels < 11)
             {
-                while(counter != 40)
+                while(counter != 30)
                 {
-                    ball1.setLocation((int) (xLoc + x), ball1.getY() + y);
+                    calc = coefficient * Math.pow(counter, 2);
+                    ball1.setLocation((int)(ball1.getX() + x), (int)((levels*40)+(calc)) - 7);
                     try {
-                        Thread.sleep(20);
+                        Thread.sleep(15);
                     } catch (InterruptedException ex) {
                         Logger.getLogger(BellCurve.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                    System.out.println(output);
                     counter++;
-                    x = x + xAmount;
                 }
+                
                 if(Math.random() > 0.5)
                 {
-                    xAmount = 0.75;
+                    x = 1;
                     output = output + "R";
                 }
                 else
                 {
-                     xAmount = -0.75;
+                     x = -1;
                      output = output + "L";
                 }
                 counter = 0; 
-                flag = true;
+                flag = true; 
                 levels++;
             }
+            y = 1;
+            x = 0;
+            flag = false;
+            levels = 0;
+            output = new String();
+            counter = 0;
+            
+            for(int q = 0; q < 30; q++)
+            {
+                ball1.setLocation(ball1.getX(), ball1.getY() + 1);
+                    try {
+                        Thread.sleep(15);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(BellCurve.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+            }
+            ball1.setLocation(340, 0);
         }
     }
-
     
+    private void ballTwoFall()
+    {
+        try 
+        {
+            Thread.sleep(900);
+        } 
+        catch (InterruptedException ex)
+        {
+            Logger.getLogger(BellCurve.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        String output = "";
+        int y = 1; 
+        boolean flag = false;
+        double x = 0;
+        int counter = 0;
+        int levels = 0; 
+        double calc = 0; 
+        
+        for(int i = 0; i < (3000); i++)
+        {
+            while(levels < 11)
+            {
+                while(counter != 30)
+                {
+                    calc = coefficient * Math.pow(counter, 2);
+                    ball2.setLocation((int)(ball2.getX() + x), (int)((levels*40)+(calc)) - 7);
+                    try {
+                        Thread.sleep(15);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(BellCurve.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    counter++;
+                }
+                
+                if(Math.random() > 0.5)
+                {
+                    x = 1;
+                    output = output + "R";
+                }
+                else
+                {
+                     x = -1;
+                     output = output + "L";
+                }
+                counter = 0; 
+                flag = true; 
+                levels++;
+            }
+            y = 1;
+            x = 0;
+            flag = false;
+            levels = 0;
+            output = new String();
+            counter = 0;
+            
+            for(int q = 0; q < 30; q++)
+            {
+                ball2.setLocation(ball2.getX(), ball2.getY() + 1);
+                    try {
+                        Thread.sleep(15);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(BellCurve.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+            }
+            ball2.setLocation(340, 0);
+        }
+    }
+    
+    private void ballThreeFall()
+    {
+        try 
+        {
+            Thread.sleep(1800);
+        } 
+        catch (InterruptedException ex)
+        {
+            Logger.getLogger(BellCurve.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        String output = "";
+        int y = 1; 
+        boolean flag = false;
+        double x = 0;
+        int counter = 0;
+        int levels = 0; 
+        double calc = 0; 
+        
+        for(int i = 0; i < (3000); i++)
+        {
+            while(levels < 11)
+            {
+                while(counter != 30)
+                {
+                    calc = coefficient * Math.pow(counter, 2);
+                    ball3.setLocation((int)(ball3.getX() + x), (int)((levels*40)+(calc)) - 7);
+                    try {
+                        Thread.sleep(15);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(BellCurve.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    counter++;
+                }
+                
+                if(Math.random() > 0.5)
+                {
+                    x = 1;
+                    output = output + "R";
+                }
+                else
+                {
+                     x = -1;
+                     output = output + "L";
+                }
+                counter = 0; 
+                flag = true; 
+                levels++;
+            }
+            y = 1;
+            x = 0;
+            flag = false;
+            levels = 0;
+            output = new String();
+            counter = 0;
+            
+            for(int q = 0; q < 30; q++)
+            {
+                ball3.setLocation(ball3.getX(), ball3.getY() + 1);
+                    try {
+                        Thread.sleep(15);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(BellCurve.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+            }
+            ball3.setLocation(340, 0);
+        }
+    }
+    
+    private void ballFourFall()
+    {
+        try 
+        {
+            Thread.sleep(2700);
+        } 
+        catch (InterruptedException ex)
+        {
+            Logger.getLogger(BellCurve.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        String output = "";
+        int y = 1; 
+        boolean flag = false;
+        double x = 0;
+        int counter = 0;
+        int levels = 0; 
+        double calc = 0; 
+        
+        for(int i = 0; i < (3000); i++)
+        {
+            while(levels < 11)
+            {
+                while(counter != 30)
+                {
+                    calc = coefficient * Math.pow(counter, 2);
+                    ball4.setLocation((int)(ball4.getX() + x), (int)((levels*40)+(calc)) - 7);
+                    try {
+                        Thread.sleep(15);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(BellCurve.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    counter++;
+                }
+                
+                if(Math.random() > 0.5)
+                {
+                    x = 1;
+                    output = output + "R";
+                }
+                else
+                {
+                     x = -1;
+                     output = output + "L";
+                }
+                counter = 0; 
+                flag = true; 
+                levels++;
+            }
+            y = 1;
+            x = 0;
+            flag = false;
+            levels = 0;
+            output = new String();
+            counter = 0;
+            
+            for(int q = 0; q < 30; q++)
+            {
+                ball4.setLocation(ball4.getX(), ball4.getY() + 1);
+                    try {
+                        Thread.sleep(15);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(BellCurve.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+            }
+            ball4.setLocation(340, 0);
+        }
+    }
+    
+    private void ballFiveFall()
+    {
+        try 
+        {
+            Thread.sleep(3600);
+        } 
+        catch (InterruptedException ex)
+        {
+            Logger.getLogger(BellCurve.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        String output = "";
+        int y = 1; 
+        boolean flag = false;
+        double x = 0;
+        int counter = 0;
+        int levels = 0; 
+        double calc = 0; 
+        
+        for(int i = 0; i < (3000); i++)
+        {
+            while(levels < 11)
+            {
+                while(counter != 30)
+                {
+                    calc = coefficient * Math.pow(counter, 2);
+                    ball5.setLocation((int)(ball5.getX() + x), (int)((levels*40)+(calc)) - 7);
+                    try {
+                        Thread.sleep(15);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(BellCurve.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    counter++;
+                }
+                
+                if(Math.random() > 0.5)
+                {
+                    x = 1;
+                    output = output + "R";
+                }
+                else
+                {
+                     x = -1;
+                     output = output + "L";
+                }
+                counter = 0; 
+                flag = true; 
+                levels++;
+            }
+            y = 1;
+            x = 0;
+            flag = false;
+            levels = 0;
+            output = new String();
+            counter = 0;
+            
+            for(int q = 0; q < 30; q++)
+            {
+                ball5.setLocation(ball5.getX(), ball5.getY() + 1);
+                    try {
+                        Thread.sleep(15);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(BellCurve.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+            }
+            ball5.setLocation(340, 0);
+        }
+    }
+    
+    private void ballSixFall()
+    {
+        try 
+        {
+            Thread.sleep(4500);
+        } 
+        catch (InterruptedException ex)
+        {
+            Logger.getLogger(BellCurve.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        String output = "";
+        int y = 1; 
+        boolean flag = false;
+        double x = 0;
+        int counter = 0;
+        int levels = 0; 
+        double calc = 0; 
+        
+        for(int i = 0; i < (3000); i++)
+        {
+            while(levels < 11)
+            {
+                while(counter != 30)
+                {
+                    calc = coefficient * Math.pow(counter, 2);
+                    ball6.setLocation((int)(ball6.getX() + x), (int)((levels*40)+(calc)) - 7);
+                    try {
+                        Thread.sleep(15);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(BellCurve.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    counter++;
+                }
+                
+                if(Math.random() > 0.5)
+                {
+                    x = 1;
+                    output = output + "R";
+                }
+                else
+                {
+                     x = -1;
+                     output = output + "L";
+                }
+                counter = 0; 
+                flag = true; 
+                levels++;
+            }
+            y = 1;
+            x = 0;
+            flag = false;
+            levels = 0;
+            output = new String();
+            counter = 0;
+            
+            for(int q = 0; q < 30; q++)
+            {
+                ball6.setLocation(ball6.getX(), ball6.getY() + 1);
+                    try {
+                        Thread.sleep(15);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(BellCurve.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+            }
+            ball6.setLocation(340, 0);
+        }
+    }
+    
+        
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -139,11 +544,17 @@ public class BellCurve extends javax.swing.JFrame {
         left17 = new javax.swing.JLabel();
         row1b4 = new javax.swing.JLabel();
         row1b5 = new javax.swing.JLabel();
+        ball2 = new javax.swing.JLabel();
+        ball3 = new javax.swing.JLabel();
+        ball4 = new javax.swing.JLabel();
+        ball5 = new javax.swing.JLabel();
+        ball6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(680, 600));
-        setMinimumSize(new java.awt.Dimension(680, 600));
-        setPreferredSize(new java.awt.Dimension(680, 600));
+        setTitle("Standard Distribution");
+        setMaximumSize(new java.awt.Dimension(690, 600));
+        setMinimumSize(new java.awt.Dimension(690, 600));
+        setPreferredSize(new java.awt.Dimension(690, 600));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -531,6 +942,31 @@ public class BellCurve extends javax.swing.JFrame {
         getContentPane().add(row1b5);
         row1b5.setBounds(340, 40, 10, 10);
 
+        ball2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ball.png"))); // NOI18N
+        ball2.setToolTipText("");
+        getContentPane().add(ball2);
+        ball2.setBounds(340, 0, 10, 10);
+
+        ball3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ball.png"))); // NOI18N
+        ball3.setToolTipText("");
+        getContentPane().add(ball3);
+        ball3.setBounds(340, 0, 10, 10);
+
+        ball4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ball.png"))); // NOI18N
+        ball4.setToolTipText("");
+        getContentPane().add(ball4);
+        ball4.setBounds(340, 0, 10, 10);
+
+        ball5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ball.png"))); // NOI18N
+        ball5.setToolTipText("");
+        getContentPane().add(ball5);
+        ball5.setBounds(340, 0, 10, 10);
+
+        ball6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ball.png"))); // NOI18N
+        ball6.setToolTipText("");
+        getContentPane().add(ball6);
+        ball6.setBounds(340, 0, 10, 10);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -571,6 +1007,11 @@ public class BellCurve extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ball1;
+    private javax.swing.JLabel ball2;
+    private javax.swing.JLabel ball3;
+    private javax.swing.JLabel ball4;
+    private javax.swing.JLabel ball5;
+    private javax.swing.JLabel ball6;
     private javax.swing.JLabel left1;
     private javax.swing.JLabel left10;
     private javax.swing.JLabel left11;
