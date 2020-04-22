@@ -552,9 +552,7 @@ public class BellCurve extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Standard Distribution");
-        setMaximumSize(new java.awt.Dimension(690, 600));
         setMinimumSize(new java.awt.Dimension(690, 600));
-        setPreferredSize(new java.awt.Dimension(690, 600));
         setResizable(false);
         getContentPane().setLayout(null);
 

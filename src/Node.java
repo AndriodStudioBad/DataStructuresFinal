@@ -41,7 +41,7 @@ public class Node {
     }
     
     public static boolean compareTo(Node n1, Node n2){
-        return (n1.toString() == n2.toString() && n1.getValue() == n2.getValue());
+        return (n1.toString().equals(n2.toString()) && n1.getValue() == n2.getValue());
     }
     protected void add(){
         val++;
@@ -50,6 +50,6 @@ public class Node {
         if(n1.getRightChild() == null || n2.getLeftChild() == null){
             return false;
         }
-        return(n1.getRightChild().toString() == n2.getLeftChild().toString());
+        return(n1.getRightChild().toString().equals(n2.getLeftChild().toString()));
     }
 }
