@@ -8,5 +8,6 @@ public class Driver {
         TreeBall test = new TreeBall();
         test.ProcessData("RLRLRLLLLLL");
         System.out.println(test);
+        DataAnalysis.Update(test.getBellCurve());
     }
 }
