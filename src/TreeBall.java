@@ -12,8 +12,10 @@ public class TreeBall {
     //private Node head;
     private final int levels = 10;
     private int[] Tree;
+    private int[] bellCurve;
     public TreeBall(){
         Tree = new int[(levels/2) * (levels + 1)];
+        bellCurve = new int[11];
     }
     
     private static String createBitString(int level){ //currently unused, might be needed later
@@ -31,6 +33,7 @@ public class TreeBall {
     public void ProcessData(String Bitstring){
         int i = 0;
         int level = 1;
+        String t = Bitstring;
         //int numR = 0;
         while(Bitstring.length() > 0 && i < Tree.length && level <= levels){
             Tree[i]++;
@@ -45,7 +48,22 @@ public class TreeBall {
         if(i < Tree.length){
             Tree[i]++;
         }
+        processResult(t);
     }
+    
+    private void processResult(String in){
+        int c = 0;
+        while(in.contains("R")){
+            c++;
+            in = in.substring(in.indexOf('R') + 1);
+        }
+        bellCurve[c]++;
+    }
+    
+    public int[] getBellCurve(){
+        return bellCurve;
+    }
+    
     
     @Override
     public String toString(){
