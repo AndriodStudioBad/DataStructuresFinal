@@ -1,6 +1,7 @@
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 
 public class BellCurve extends javax.swing.JFrame {
 
@@ -8,6 +9,8 @@ public class BellCurve extends javax.swing.JFrame {
     private Thread t, t2, t3, t4, t5, t6;
     private final double coefficient;
     private TreeBall data;
+    
+    private Graph frame;
     
     public BellCurve() {
         initComponents();
@@ -26,6 +29,11 @@ public class BellCurve extends javax.swing.JFrame {
         ball4.setVisible(false);
         ball5.setVisible(false);
         ball6.setVisible(false);
+        
+        frame = new Graph();
+        frame.setD(d);
+        
+        frame.setVisible(true);
         
         t.start();
         t2.start();
@@ -119,6 +127,7 @@ public class BellCurve extends javax.swing.JFrame {
             y = 1;
             x = 0;
             data.ProcessData(output);
+            frame.updateArray((data.getBellCurve()));
             System.out.println(data);
             flag = false;
             levels = 0;
@@ -1069,10 +1078,12 @@ public class BellCurve extends javax.swing.JFrame {
 
     private void fActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fActionPerformed
         d = 5;
+        frame.setD(d);
     }//GEN-LAST:event_fActionPerformed
 
     private void sActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sActionPerformed
         d = 15;
+        frame.setD(d);
     }//GEN-LAST:event_sActionPerformed
 
     /**
