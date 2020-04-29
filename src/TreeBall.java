@@ -12,7 +12,7 @@ public class TreeBall {
     //private Node head;
     private final int levels = 10;
     private int[] Tree;
-    private int[] bellCurve;
+    private static int[] bellCurve;
     public TreeBall(){
         Tree = new int[(levels/2) * (levels + 1)];
         bellCurve = new int[11];
@@ -60,7 +60,7 @@ public class TreeBall {
         bellCurve[c]++;
     }
     
-    public int[] getBellCurve(){
+    public static int[] getBellCurve(){
         return bellCurve;
     }
     
