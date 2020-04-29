@@ -6,10 +6,10 @@ public class DataAnalysis
     private static ArrayList<Integer>[] graph; 
     private static int[] data;
     
-    public static void Update(int[] d)
+    public static void Update()
     {
         graph = new ArrayList[11]; 
-        data = d;
+        data = TreeBall.getBellCurve();
                 
         for(int x = 0; x < data.length; x++)
         {
@@ -23,6 +23,11 @@ public class DataAnalysis
             }
         }
     }
+    
+   public static ArrayList<Integer>[] getGraph()
+   {
+       return graph;
+   }
     
     
 }

@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -40,6 +41,10 @@ public class Graph extends javax.swing.JFrame {
         
         while(i != 1)
         {
+            
+            DataAnalysis.Update();
+            ArrayList<Integer>[] graph = DataAnalysis.getGraph();
+            
             try
             {
                 Thread.sleep(d);
@@ -47,28 +52,30 @@ public class Graph extends javax.swing.JFrame {
             catch (InterruptedException ex)
             {
                 Logger.getLogger(BellCurve.class.getName()).log(Level.SEVERE, null, ex);
-            }
             
+            }
             double divide = 1; 
             
             for(int j = 0; j < 11; j++)
             {
-                divide = divide + array[j];
+                divide = divide + graph[j].size();
             }
             if(divide != 0)
                 divide = 279 / divide;
             
-            bar1.setSize(bar1.getWidth(), (int)(array[0] * divide));
-            bar2.setSize(bar1.getWidth(), (int)(array[1] * divide));
-            bar3.setSize(bar1.getWidth(), (int)(array[2] * divide));
-            bar4.setSize(bar1.getWidth(), (int)(array[3] * divide));
-            bar5.setSize(bar1.getWidth(), (int)(array[4] * divide));
-            bar6.setSize(bar1.getWidth(), (int)(array[5] * divide));
-            bar7.setSize(bar1.getWidth(), (int)(array[6] * divide));
-            bar8.setSize(bar1.getWidth(), (int)(array[7] * divide));
-            bar9.setSize(bar1.getWidth(), (int)(array[8] * divide));
-            bar10.setSize(bar1.getWidth(), (int)(array[9] * divide));
-            bar11.setSize(bar1.getWidth(), (int)(array[10] * divide));
+            
+            
+            bar1.setSize(bar1.getWidth(), (int)(graph[0].size() * divide));
+            bar2.setSize(bar1.getWidth(), (int)(graph[1].size() * divide));
+            bar3.setSize(bar1.getWidth(), (int)(graph[2].size() * divide));
+            bar4.setSize(bar1.getWidth(), (int)(graph[3].size() * divide));
+            bar5.setSize(bar1.getWidth(), (int)(graph[4].size() * divide));
+            bar6.setSize(bar1.getWidth(), (int)(graph[5].size() * divide));
+            bar7.setSize(bar1.getWidth(), (int)(graph[6].size() * divide));
+            bar8.setSize(bar1.getWidth(), (int)(graph[7].size() * divide));
+            bar9.setSize(bar1.getWidth(), (int)(graph[8].size() * divide));
+            bar10.setSize(bar1.getWidth(), (int)(graph[9].size() * divide));
+            bar11.setSize(bar1.getWidth(), (int)(graph[10].size() * divide));
         }
     }
     
