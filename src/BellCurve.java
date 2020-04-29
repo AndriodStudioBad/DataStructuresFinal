@@ -127,7 +127,6 @@ public class BellCurve extends javax.swing.JFrame {
             y = 1;
             x = 0;
             data.ProcessData(output);
-            frame.updateArray((data.getBellCurve()));
             System.out.println(data);
             flag = false;
             levels = 0;

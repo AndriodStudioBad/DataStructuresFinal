@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -17,16 +18,16 @@ public class Graph extends javax.swing.JFrame {
 
     private Thread t;
     private int d;
-    private int [] array;
+    private ArrayList<Integer>[] array;
     
     public Graph() {
         initComponents();
         d = 15; 
         
+        array = DataAnalysis.getGraph();
+        
         t = new Thread(updater);
         t.start();
-        
-        array = new int [11];
     }
 
     Runnable updater = new Runnable(){
@@ -45,6 +46,8 @@ public class Graph extends javax.swing.JFrame {
             DataAnalysis.Update();
             ArrayList<Integer>[] graph = DataAnalysis.getGraph();
             
+            System.out.println(graph);
+            
             try
             {
                 Thread.sleep(d);
@@ -59,6 +62,7 @@ public class Graph extends javax.swing.JFrame {
             for(int j = 0; j < 11; j++)
             {
                 divide = divide + graph[j].size();
+                System.out.println(divide);
             }
             if(divide != 0)
                 divide = 279 / divide;
@@ -83,12 +87,6 @@ public class Graph extends javax.swing.JFrame {
     {
         d = a;
     }
-    
-    public void updateArray(int [] a)
-    {
-        array = a;
-    }
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
