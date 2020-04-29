@@ -5,17 +5,27 @@ import java.util.logging.Logger;
 public class BellCurve extends javax.swing.JFrame {
 
     private int d;
+    private Thread t, t2, t3, t4, t5, t6;
     private final double coefficient;
+    private TreeBall data;
     
     public BellCurve() {
         initComponents();
-        d = 300;
-        Thread t = new Thread(ball_one);
-        Thread t2 = new Thread(ball_two);
-        Thread t3 = new Thread(ball_three);
-        Thread t4 = new Thread(ball_four);
-        Thread t5 = new Thread(ball_five);
-        Thread t6 = new Thread(ball_six);
+        d = 15;
+        t = new Thread(ball_one);
+        t2 = new Thread(ball_two);
+        t3 = new Thread(ball_three);
+        t4 = new Thread(ball_four);
+        t5 = new Thread(ball_five);
+        t6 = new Thread(ball_six);
+        
+        data = new TreeBall();
+        
+        ball2.setVisible(false);
+        ball3.setVisible(false);
+        ball4.setVisible(false);
+        ball5.setVisible(false);
+        ball6.setVisible(false);
         
         t.start();
         t2.start();
@@ -47,19 +57,19 @@ public class BellCurve extends javax.swing.JFrame {
     
     Runnable ball_four = new Runnable(){
             public void run(){
-                ballFourFall();                
+              ballFourFall();                
             }
         };
     
     Runnable ball_five = new Runnable(){
             public void run(){
-                ballFiveFall();                
+              ballFiveFall();                
             }
         };
     
     Runnable ball_six = new Runnable(){
             public void run(){
-                ballSixFall();                
+              ballSixFall();                
             }
         };
 
@@ -82,22 +92,25 @@ public class BellCurve extends javax.swing.JFrame {
                     calc = coefficient * Math.pow(counter, 2);
                     ball1.setLocation((int)(ball1.getX() + x), (int)((levels*40)+(calc)) - 7);
                     try {
-                        Thread.sleep(15);
+                        Thread.sleep(d);
                     } catch (InterruptedException ex) {
                         Logger.getLogger(BellCurve.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     counter++;
                 }
                 
-                if(Math.random() > 0.5)
+                if(levels < 10)
                 {
-                    x = 1;
-                    output = output + "R";
-                }
-                else
-                {
-                     x = -1;
-                     output = output + "L";
+                    if(Math.random() > 0.5)
+                    {
+                        x = 1;
+                        output = output + "R";
+                    }
+                    else
+                    {
+                         x = -1;
+                         output = output + "L";
+                    }
                 }
                 counter = 0; 
                 flag = true; 
@@ -105,8 +118,11 @@ public class BellCurve extends javax.swing.JFrame {
             }
             y = 1;
             x = 0;
+            data.ProcessData(output);
+            System.out.println(data);
             flag = false;
             levels = 0;
+            System.out.println(output);
             output = new String();
             counter = 0;
             
@@ -114,25 +130,31 @@ public class BellCurve extends javax.swing.JFrame {
             {
                 ball1.setLocation(ball1.getX(), ball1.getY() + 1);
                     try {
-                        Thread.sleep(15);
+                        Thread.sleep(d);
                     } catch (InterruptedException ex) {
                         Logger.getLogger(BellCurve.class.getName()).log(Level.SEVERE, null, ex);
                     }
             }
+            
             ball1.setLocation(340, 0);
+           
         }
     }
     
     private void ballTwoFall()
     {
-        try 
+        
+        ball2.setLocation(340, ball2.getY() - 60);
+        for(int i = 0; i < 60; i++)
         {
-            Thread.sleep(900);
-        } 
-        catch (InterruptedException ex)
-        {
-            Logger.getLogger(BellCurve.class.getName()).log(Level.SEVERE, null, ex);
+            ball2.setLocation(ball2.getX(), ball2.getY() + 1);
+            try {
+                        Thread.sleep(d);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(BellCurve.class.getName()).log(Level.SEVERE, null, ex);
+                    }
         }
+        ball2.setVisible(true);
         
         String output = "";
         int y = 1; 
@@ -151,13 +173,15 @@ public class BellCurve extends javax.swing.JFrame {
                     calc = coefficient * Math.pow(counter, 2);
                     ball2.setLocation((int)(ball2.getX() + x), (int)((levels*40)+(calc)) - 7);
                     try {
-                        Thread.sleep(15);
+                        Thread.sleep(d);
                     } catch (InterruptedException ex) {
                         Logger.getLogger(BellCurve.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     counter++;
                 }
                 
+                if(levels < 10)
+                {
                 if(Math.random() > 0.5)
                 {
                     x = 1;
@@ -168,6 +192,7 @@ public class BellCurve extends javax.swing.JFrame {
                      x = -1;
                      output = output + "L";
                 }
+                }
                 counter = 0; 
                 flag = true; 
                 levels++;
@@ -176,6 +201,7 @@ public class BellCurve extends javax.swing.JFrame {
             x = 0;
             flag = false;
             levels = 0;
+            data.ProcessData(output);
             output = new String();
             counter = 0;
             
@@ -183,7 +209,7 @@ public class BellCurve extends javax.swing.JFrame {
             {
                 ball2.setLocation(ball2.getX(), ball2.getY() + 1);
                     try {
-                        Thread.sleep(15);
+                        Thread.sleep(d);
                     } catch (InterruptedException ex) {
                         Logger.getLogger(BellCurve.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -192,16 +218,22 @@ public class BellCurve extends javax.swing.JFrame {
         }
     }
     
+    
+    
     private void ballThreeFall()
     {
-        try 
+        
+        ball3.setLocation(340, ball3.getY() - 120);
+        for(int i = 0; i < 120; i++)
         {
-            Thread.sleep(1800);
-        } 
-        catch (InterruptedException ex)
-        {
-            Logger.getLogger(BellCurve.class.getName()).log(Level.SEVERE, null, ex);
+            ball3.setLocation(ball3.getX(), ball3.getY() + 1);
+            try {
+                        Thread.sleep(d);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(BellCurve.class.getName()).log(Level.SEVERE, null, ex);
+                    }
         }
+        ball3.setVisible(true);
         
         String output = "";
         int y = 1; 
@@ -220,13 +252,15 @@ public class BellCurve extends javax.swing.JFrame {
                     calc = coefficient * Math.pow(counter, 2);
                     ball3.setLocation((int)(ball3.getX() + x), (int)((levels*40)+(calc)) - 7);
                     try {
-                        Thread.sleep(15);
+                        Thread.sleep(d);
                     } catch (InterruptedException ex) {
                         Logger.getLogger(BellCurve.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     counter++;
                 }
                 
+                if(levels < 10)
+                {
                 if(Math.random() > 0.5)
                 {
                     x = 1;
@@ -237,6 +271,7 @@ public class BellCurve extends javax.swing.JFrame {
                      x = -1;
                      output = output + "L";
                 }
+                }
                 counter = 0; 
                 flag = true; 
                 levels++;
@@ -245,6 +280,7 @@ public class BellCurve extends javax.swing.JFrame {
             x = 0;
             flag = false;
             levels = 0;
+            data.ProcessData(output);
             output = new String();
             counter = 0;
             
@@ -252,25 +288,29 @@ public class BellCurve extends javax.swing.JFrame {
             {
                 ball3.setLocation(ball3.getX(), ball3.getY() + 1);
                     try {
-                        Thread.sleep(15);
+                        Thread.sleep(d);
                     } catch (InterruptedException ex) {
                         Logger.getLogger(BellCurve.class.getName()).log(Level.SEVERE, null, ex);
                     }
             }
             ball3.setLocation(340, 0);
         }
+
     }
     
     private void ballFourFall()
     {
-        try 
+        ball4.setLocation(340, ball4.getY() - 180);
+        for(int i = 0; i < 180; i++)
         {
-            Thread.sleep(2700);
-        } 
-        catch (InterruptedException ex)
-        {
-            Logger.getLogger(BellCurve.class.getName()).log(Level.SEVERE, null, ex);
+            ball4.setLocation(ball4.getX(), ball4.getY() + 1);
+            try {
+                        Thread.sleep(d);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(BellCurve.class.getName()).log(Level.SEVERE, null, ex);
+                    }
         }
+        ball4.setVisible(true);
         
         String output = "";
         int y = 1; 
@@ -289,12 +329,15 @@ public class BellCurve extends javax.swing.JFrame {
                     calc = coefficient * Math.pow(counter, 2);
                     ball4.setLocation((int)(ball4.getX() + x), (int)((levels*40)+(calc)) - 7);
                     try {
-                        Thread.sleep(15);
+                        Thread.sleep(d);
                     } catch (InterruptedException ex) {
                         Logger.getLogger(BellCurve.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     counter++;
                 }
+                
+                if(levels < 10)
+                {
                 
                 if(Math.random() > 0.5)
                 {
@@ -306,6 +349,7 @@ public class BellCurve extends javax.swing.JFrame {
                      x = -1;
                      output = output + "L";
                 }
+                }
                 counter = 0; 
                 flag = true; 
                 levels++;
@@ -314,6 +358,7 @@ public class BellCurve extends javax.swing.JFrame {
             x = 0;
             flag = false;
             levels = 0;
+            data.ProcessData(output);
             output = new String();
             counter = 0;
             
@@ -321,25 +366,30 @@ public class BellCurve extends javax.swing.JFrame {
             {
                 ball4.setLocation(ball4.getX(), ball4.getY() + 1);
                     try {
-                        Thread.sleep(15);
+                        Thread.sleep(d);
                     } catch (InterruptedException ex) {
                         Logger.getLogger(BellCurve.class.getName()).log(Level.SEVERE, null, ex);
                     }
             }
             ball4.setLocation(340, 0);
-        }
+        
+    }
     }
     
     private void ballFiveFall()
     {
-        try 
+        ball5.setLocation(340, ball5.getY() - 240);
+        for(int i = 0; i < 240; i++)
         {
-            Thread.sleep(3600);
-        } 
-        catch (InterruptedException ex)
-        {
-            Logger.getLogger(BellCurve.class.getName()).log(Level.SEVERE, null, ex);
+            ball5.setLocation(ball5.getX(), ball5.getY() + 1);
+            try {
+                        Thread.sleep(d);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(BellCurve.class.getName()).log(Level.SEVERE, null, ex);
+                    }
         }
+        ball5.setVisible(true);
+        
         String output = "";
         int y = 1; 
         boolean flag = false;
@@ -350,6 +400,8 @@ public class BellCurve extends javax.swing.JFrame {
         
         for(int i = 0; i < (3000); i++)
         {
+        {
+
             while(levels < 11)
             {
                 while(counter != 30)
@@ -357,13 +409,15 @@ public class BellCurve extends javax.swing.JFrame {
                     calc = coefficient * Math.pow(counter, 2);
                     ball5.setLocation((int)(ball5.getX() + x), (int)((levels*40)+(calc)) - 7);
                     try {
-                        Thread.sleep(15);
+                        Thread.sleep(d);
                     } catch (InterruptedException ex) {
                         Logger.getLogger(BellCurve.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     counter++;
                 }
                 
+                if(levels < 10)
+                {
                 if(Math.random() > 0.5)
                 {
                     x = 1;
@@ -374,6 +428,7 @@ public class BellCurve extends javax.swing.JFrame {
                      x = -1;
                      output = output + "L";
                 }
+                }
                 counter = 0; 
                 flag = true; 
                 levels++;
@@ -382,6 +437,7 @@ public class BellCurve extends javax.swing.JFrame {
             x = 0;
             flag = false;
             levels = 0;
+            data.ProcessData(output);
             output = new String();
             counter = 0;
             
@@ -389,25 +445,29 @@ public class BellCurve extends javax.swing.JFrame {
             {
                 ball5.setLocation(ball5.getX(), ball5.getY() + 1);
                     try {
-                        Thread.sleep(15);
+                        Thread.sleep(d);
                     } catch (InterruptedException ex) {
                         Logger.getLogger(BellCurve.class.getName()).log(Level.SEVERE, null, ex);
                     }
             }
             ball5.setLocation(340, 0);
         }
+        }
     }
     
     private void ballSixFall()
     {
-        try 
+        ball6.setLocation(340, ball6.getY() - 300);
+        for(int i = 0; i < 300; i++)
         {
-            Thread.sleep(4500);
-        } 
-        catch (InterruptedException ex)
-        {
-            Logger.getLogger(BellCurve.class.getName()).log(Level.SEVERE, null, ex);
+            ball6.setLocation(ball6.getX(), ball6.getY() + 1);
+            try {
+                        Thread.sleep(d);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(BellCurve.class.getName()).log(Level.SEVERE, null, ex);
+                    }
         }
+        ball6.setVisible(true);
         
         String output = "";
         int y = 1; 
@@ -426,12 +486,15 @@ public class BellCurve extends javax.swing.JFrame {
                     calc = coefficient * Math.pow(counter, 2);
                     ball6.setLocation((int)(ball6.getX() + x), (int)((levels*40)+(calc)) - 7);
                     try {
-                        Thread.sleep(15);
+                        Thread.sleep(d);
                     } catch (InterruptedException ex) {
                         Logger.getLogger(BellCurve.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     counter++;
                 }
+                
+                if(levels < 10)
+                {
                 
                 if(Math.random() > 0.5)
                 {
@@ -443,22 +506,26 @@ public class BellCurve extends javax.swing.JFrame {
                      x = -1;
                      output = output + "L";
                 }
+                }
                 counter = 0; 
                 flag = true; 
-                levels++;
+                levels++;            
             }
+            
             y = 1;
             x = 0;
             flag = false;
             levels = 0;
+            data.ProcessData(output);
             output = new String();
             counter = 0;
+        
             
             for(int q = 0; q < 30; q++)
             {
                 ball6.setLocation(ball6.getX(), ball6.getY() + 1);
                     try {
-                        Thread.sleep(15);
+                        Thread.sleep(d);
                     } catch (InterruptedException ex) {
                         Logger.getLogger(BellCurve.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -468,10 +535,13 @@ public class BellCurve extends javax.swing.JFrame {
     }
     
         
+    
+        
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         ball1 = new javax.swing.JLabel();
         row3b1 = new javax.swing.JLabel();
         row5b3 = new javax.swing.JLabel();
@@ -549,6 +619,9 @@ public class BellCurve extends javax.swing.JFrame {
         ball4 = new javax.swing.JLabel();
         ball5 = new javax.swing.JLabel();
         ball6 = new javax.swing.JLabel();
+        speedLabel = new javax.swing.JLabel();
+        s = new javax.swing.JRadioButton();
+        f = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Standard Distribution");
@@ -965,8 +1038,42 @@ public class BellCurve extends javax.swing.JFrame {
         getContentPane().add(ball6);
         ball6.setBounds(340, 0, 10, 10);
 
+        speedLabel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        speedLabel.setText("Speed Control");
+        getContentPane().add(speedLabel);
+        speedLabel.setBounds(570, 20, 90, 15);
+
+        buttonGroup1.add(s);
+        s.setSelected(true);
+        s.setText("Standard");
+        s.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sActionPerformed(evt);
+            }
+        });
+        getContentPane().add(s);
+        s.setBounds(580, 40, 80, 23);
+
+        buttonGroup1.add(f);
+        f.setText("Fast");
+        f.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fActionPerformed(evt);
+            }
+        });
+        getContentPane().add(f);
+        f.setBounds(580, 60, 80, 23);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void fActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fActionPerformed
+        d = 5;
+    }//GEN-LAST:event_fActionPerformed
+
+    private void sActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sActionPerformed
+        d = 15;
+    }//GEN-LAST:event_sActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1010,6 +1117,8 @@ public class BellCurve extends javax.swing.JFrame {
     private javax.swing.JLabel ball4;
     private javax.swing.JLabel ball5;
     private javax.swing.JLabel ball6;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JRadioButton f;
     private javax.swing.JLabel left1;
     private javax.swing.JLabel left10;
     private javax.swing.JLabel left11;
@@ -1081,5 +1190,7 @@ public class BellCurve extends javax.swing.JFrame {
     private javax.swing.JLabel row8b7;
     private javax.swing.JLabel row8b8;
     private javax.swing.JLabel row9b4;
+    private javax.swing.JRadioButton s;
+    private javax.swing.JLabel speedLabel;
     // End of variables declaration//GEN-END:variables
 }

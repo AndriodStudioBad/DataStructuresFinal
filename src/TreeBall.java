@@ -57,7 +57,7 @@ public class TreeBall {
             if(i >= c){
                 level++;
                 c += level;
-                r += '\n';
+                r += '\n' + " ";
                 if(level > levels){ break; }
             }
         }
