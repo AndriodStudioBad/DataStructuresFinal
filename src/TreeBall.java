@@ -13,9 +13,12 @@ public class TreeBall {
     private final int levels = 10;
     private int[] Tree;
     private static int[] bellCurve;
+    private static int recent;
+    
     public TreeBall(){
         Tree = new int[(levels/2) * (levels + 1)];
         bellCurve = new int[11];
+        recent = 12;
     }
     
     private static String createBitString(int level){ //currently unused, might be needed later
@@ -58,10 +61,16 @@ public class TreeBall {
             in = in.substring(in.indexOf('R') + 1);
         }
         bellCurve[c]++;
+        recent = c;
     }
     
     public static int[] getBellCurve(){
         return bellCurve;
+    }
+    
+    public static int getRecent()
+    {
+        return recent;
     }
     
     

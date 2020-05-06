@@ -1,6 +1,6 @@
 
+import java.awt.Dimension;
 import java.util.ArrayList;
-import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  */
 public class Graph extends javax.swing.JFrame {
 
-    private Thread t;
+    private Thread t, t2;
     private int d;
     private ArrayList<Integer>[] array;
     
@@ -26,8 +26,26 @@ public class Graph extends javax.swing.JFrame {
         
         array = DataAnalysis.getGraph();
         
+        bar1.setSize(bar1.getWidth(), 0);
+        
+        Dimension a = new Dimension(30, 0);
+        bar1.setPreferredSize(a);
+        bar2.setPreferredSize(a);
+        bar3.setPreferredSize(a);
+        bar4.setPreferredSize(a);
+        bar5.setPreferredSize(a);
+        bar6.setPreferredSize(a);
+        bar7.setPreferredSize(a);
+        bar8.setPreferredSize(a);
+        bar9.setPreferredSize(a);
+        bar10.setPreferredSize(a);
+        bar11.setPreferredSize(a);
+
+        
         t = new Thread(updater);
+        t2 = new Thread(table);
         t.start();
+        t2.start();
     }
 
     Runnable updater = new Runnable(){
@@ -36,13 +54,18 @@ public class Graph extends javax.swing.JFrame {
             }
         };
     
+    Runnable table = new Runnable(){
+            public void run(){
+                tableSetUp();                
+            }
+        };
+
+    
     public void update()
     {
-        int i = 0; 
-        
+        int i = 0;
         while(i != 1)
         {
-            
             DataAnalysis.Update();
             ArrayList<Integer>[] graph = DataAnalysis.getGraph();
             
@@ -75,11 +98,29 @@ public class Graph extends javax.swing.JFrame {
             bar9.setSize(bar1.getWidth(), (int)(graph[8].size() * divide));
             bar10.setSize(bar1.getWidth(), (int)(graph[9].size() * divide));
             bar11.setSize(bar1.getWidth(), (int)(graph[10].size() * divide));
-             
-            int temp = 0;
+        }
+    }
+    
+    public void tableSetUp()
+    {
+        int i = 1;
+        while(i != 0)
+        {
+        try
+            {
+                Thread.sleep(d);
+            } 
+            catch (InterruptedException ex)
+            {
+                Logger.getLogger(BellCurve.class.getName()).log(Level.SEVERE, null, ex);
+            
+            }
+        
+        
+        int temp = 0;
             try
             {
-                temp = DataAnalysis.getVal().get(DataAnalysis.getVal().size() - 1);
+                temp = TreeBall.getRecent();
             }
             catch(Exception e)
             {
@@ -136,18 +177,6 @@ public class Graph extends javax.swing.JFrame {
                 default:
                 break;
             }
-        
-//            slot1.setText(TreeBall.getBellCurve()[0] + "");
-//            slot2.setText(TreeBall.getBellCurve()[1] + "");
-//            slot3.setText(TreeBall.getBellCurve()[2] + "");
-//            slot4.setText(TreeBall.getBellCurve()[3] + "");
-//            slot5.setText(TreeBall.getBellCurve()[4] + "");
-//            slot6.setText(TreeBall.getBellCurve()[5] + "");
-//            slot7.setText(TreeBall.getBellCurve()[6] + "");
-//            slot8.setText(TreeBall.getBellCurve()[7] + "");
-//            slot9.setText(TreeBall.getBellCurve()[8] + "");
-//            slot10.setText(TreeBall.getBellCurve()[9] + "");
-//            slot11.setText(TreeBall.getBellCurve()[10] + "");
         }
     }
     

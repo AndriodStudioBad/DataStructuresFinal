@@ -210,7 +210,7 @@ public class BellCurve extends javax.swing.JFrame {
             data.ProcessData(output);
             output = new String();
             counter = 0;
-            
+
             for(int q = 0; q < 30; q++)
             {
                 ball2.setLocation(ball2.getX(), ball2.getY() + 1);
@@ -289,7 +289,7 @@ public class BellCurve extends javax.swing.JFrame {
             data.ProcessData(output);
             output = new String();
             counter = 0;
-            
+
             for(int q = 0; q < 30; q++)
             {
                 ball3.setLocation(ball3.getX(), ball3.getY() + 1);
@@ -525,8 +525,7 @@ public class BellCurve extends javax.swing.JFrame {
             data.ProcessData(output);
             output = new String();
             counter = 0;
-        
-            
+
             for(int q = 0; q < 30; q++)
             {
                 ball6.setLocation(ball6.getX(), ball6.getY() + 1);
