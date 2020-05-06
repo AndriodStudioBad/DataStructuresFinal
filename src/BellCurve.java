@@ -32,7 +32,7 @@ public class BellCurve extends javax.swing.JFrame {
         
         frame = new Graph();
         frame.setD(d);
-        
+        frame.setLocation(700, 0);
         frame.setVisible(true);
         
         t.start();
@@ -127,10 +127,8 @@ public class BellCurve extends javax.swing.JFrame {
             y = 1;
             x = 0;
             data.ProcessData(output);
-            System.out.println(data);
             flag = false;
             levels = 0;
-            System.out.println(output);
             output = new String();
             counter = 0;
             

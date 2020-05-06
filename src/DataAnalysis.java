@@ -5,10 +5,13 @@ public class DataAnalysis
 {
     private static ArrayList<Integer>[] graph; 
     private static int[] data;
+    private static ArrayList<Integer> loc;
+    
     
     public static void Update()
     {
         graph = new ArrayList[11]; 
+        loc = new ArrayList<Integer>();
         
         for(int i = 0; i < 11; i++)
         {
@@ -25,7 +28,8 @@ public class DataAnalysis
                 for(int y = 1; y <= data[x]; y++)
                 {
                     graph[x].add(1);
-                    System.out.println("test");
+                    loc.add(x);
+                    System.out.println(x);
                 }
             }
         }
@@ -36,5 +40,9 @@ public class DataAnalysis
        return graph;
    }
     
+   public static ArrayList<Integer> getVal()
+   {
+       return loc;
+   }
     
 }

@@ -46,8 +46,6 @@ public class Graph extends javax.swing.JFrame {
             DataAnalysis.Update();
             ArrayList<Integer>[] graph = DataAnalysis.getGraph();
             
-            System.out.println(graph);
-            
             try
             {
                 Thread.sleep(d);
@@ -62,7 +60,6 @@ public class Graph extends javax.swing.JFrame {
             for(int j = 0; j < 11; j++)
             {
                 divide = divide + graph[j].size();
-                System.out.println(divide);
             }
             if(divide != 0)
                 divide = 279 / divide;
@@ -80,6 +77,66 @@ public class Graph extends javax.swing.JFrame {
             bar9.setSize(bar1.getWidth(), (int)(graph[8].size() * divide));
             bar10.setSize(bar1.getWidth(), (int)(graph[9].size() * divide));
             bar11.setSize(bar1.getWidth(), (int)(graph[10].size() * divide));
+             
+            int temp = 0;
+            try
+            {
+                temp = DataAnalysis.getVal().get(DataAnalysis.getVal().size() - 1);
+            }
+            catch(Exception e)
+            {
+                temp = 12;
+            }
+            
+            switch(temp)
+            {
+                case 0:
+                slot1.setText("" + graph[0].size());
+                break;
+                
+                case 1:
+                slot2.setText("" + graph[1].size());
+                break;
+                
+                case 2:
+                slot3.setText("" + graph[2].size());
+                break;
+                
+                case 3:
+                slot4.setText("" + graph[3].size());
+                break;
+                
+                case 4:
+                slot5.setText("" + graph[4].size());
+                break;
+                
+                case 5:
+                slot6.setText("" + graph[5].size());
+                break;
+                
+                case 6:
+                slot7.setText("" + graph[6].size());
+                break;
+                
+                case 7:
+                slot8.setText("" + graph[7].size());
+                break;
+                
+                case 8:
+                slot9.setText("" + graph[8].size());
+                break;
+                
+                case 9:
+                slot10.setText("" + graph[9].size());
+                break;
+                
+                case 10:
+                slot11.setText("" + graph[10].size());
+                break;
+                
+                default:
+                break;
+            }
         }
     }
     
@@ -108,6 +165,30 @@ public class Graph extends javax.swing.JFrame {
         bar11 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        slot11 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        slot1 = new javax.swing.JLabel();
+        slot2 = new javax.swing.JLabel();
+        slot3 = new javax.swing.JLabel();
+        slot4 = new javax.swing.JLabel();
+        slot5 = new javax.swing.JLabel();
+        slot6 = new javax.swing.JLabel();
+        slot7 = new javax.swing.JLabel();
+        slot8 = new javax.swing.JLabel();
+        slot9 = new javax.swing.JLabel();
+        slot10 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -260,25 +341,154 @@ public class Graph extends javax.swing.JFrame {
         jPanel1.setBounds(10, 11, 410, 340);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel2.setLayout(null);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Results");
+        jPanel2.add(jLabel2);
+        jLabel2.setBounds(51, 2, 56, 22);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(jLabel2)
-                .addContainerGap(51, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel2)
-                .addGap(0, 314, Short.MAX_VALUE))
-        );
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel4.setText("Slot #");
+        jPanel2.add(jLabel4);
+        jLabel4.setBounds(12, 30, 34, 15);
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel5.setText("Amount of Balls");
+        jPanel2.add(jLabel5);
+        jLabel5.setBounds(64, 30, 85, 15);
+
+        slot11.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        slot11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        slot11.setText("0");
+        jPanel2.add(slot11);
+        slot11.setBounds(50, 250, 110, 20);
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("1");
+        jPanel2.add(jLabel8);
+        jLabel8.setBounds(10, 50, 34, 20);
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("2");
+        jPanel2.add(jLabel9);
+        jLabel9.setBounds(10, 70, 34, 20);
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("3");
+        jPanel2.add(jLabel10);
+        jLabel10.setBounds(10, 90, 34, 20);
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("4");
+        jPanel2.add(jLabel11);
+        jLabel11.setBounds(10, 110, 34, 20);
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setText("5");
+        jPanel2.add(jLabel12);
+        jLabel12.setBounds(10, 130, 34, 20);
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel13.setText("6");
+        jPanel2.add(jLabel13);
+        jLabel13.setBounds(10, 150, 34, 20);
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel14.setText("7");
+        jPanel2.add(jLabel14);
+        jLabel14.setBounds(10, 170, 34, 20);
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel15.setText("8");
+        jPanel2.add(jLabel15);
+        jLabel15.setBounds(10, 190, 34, 20);
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel16.setText("9");
+        jPanel2.add(jLabel16);
+        jLabel16.setBounds(10, 210, 34, 20);
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel17.setText("10");
+        jPanel2.add(jLabel17);
+        jLabel17.setBounds(10, 230, 34, 20);
+
+        jLabel18.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel18.setText("11");
+        jPanel2.add(jLabel18);
+        jLabel18.setBounds(10, 250, 34, 20);
+
+        slot1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        slot1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        slot1.setText("0");
+        jPanel2.add(slot1);
+        slot1.setBounds(50, 50, 110, 20);
+
+        slot2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        slot2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        slot2.setText("0");
+        jPanel2.add(slot2);
+        slot2.setBounds(50, 70, 110, 20);
+
+        slot3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        slot3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        slot3.setText("0");
+        jPanel2.add(slot3);
+        slot3.setBounds(50, 90, 110, 20);
+
+        slot4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        slot4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        slot4.setText("0");
+        jPanel2.add(slot4);
+        slot4.setBounds(50, 110, 110, 20);
+
+        slot5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        slot5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        slot5.setText("0");
+        jPanel2.add(slot5);
+        slot5.setBounds(50, 130, 110, 20);
+
+        slot6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        slot6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        slot6.setText("0");
+        jPanel2.add(slot6);
+        slot6.setBounds(50, 150, 110, 20);
+
+        slot7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        slot7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        slot7.setText("0");
+        jPanel2.add(slot7);
+        slot7.setBounds(50, 170, 110, 20);
+
+        slot8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        slot8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        slot8.setText("0");
+        jPanel2.add(slot8);
+        slot8.setBounds(50, 190, 110, 20);
+
+        slot9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        slot9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        slot9.setText("0");
+        jPanel2.add(slot9);
+        slot9.setBounds(50, 210, 110, 20);
+
+        slot10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        slot10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        slot10.setText("0");
+        jPanel2.add(slot10);
+        slot10.setBounds(50, 230, 110, 20);
 
         getContentPane().add(jPanel2);
         jPanel2.setBounds(430, 10, 160, 340);
@@ -375,13 +585,37 @@ public class Graph extends javax.swing.JFrame {
     private javax.swing.JLabel bar8;
     private javax.swing.JLabel bar9;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JLabel slot1;
+    private javax.swing.JLabel slot10;
+    private javax.swing.JLabel slot11;
+    private javax.swing.JLabel slot2;
+    private javax.swing.JLabel slot3;
+    private javax.swing.JLabel slot4;
+    private javax.swing.JLabel slot5;
+    private javax.swing.JLabel slot6;
+    private javax.swing.JLabel slot7;
+    private javax.swing.JLabel slot8;
+    private javax.swing.JLabel slot9;
     // End of variables declaration//GEN-END:variables
 }
