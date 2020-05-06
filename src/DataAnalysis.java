@@ -29,7 +29,6 @@ public class DataAnalysis
                 {
                     graph[x].add(1);
                     loc.add(x);
-                    System.out.println(x);
                 }
             }
         }

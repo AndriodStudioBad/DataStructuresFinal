@@ -64,8 +64,6 @@ public class Graph extends javax.swing.JFrame {
             if(divide != 0)
                 divide = 279 / divide;
             
-            
-            
             bar1.setSize(bar1.getWidth(), (int)(graph[0].size() * divide));
             bar2.setSize(bar1.getWidth(), (int)(graph[1].size() * divide));
             bar3.setSize(bar1.getWidth(), (int)(graph[2].size() * divide));
@@ -88,55 +86,68 @@ public class Graph extends javax.swing.JFrame {
                 temp = 12;
             }
             
+           
             switch(temp)
             {
                 case 0:
-                slot1.setText("" + graph[0].size());
+                slot1.setText(TreeBall.getBellCurve()[0] + "");
                 break;
                 
                 case 1:
-                slot2.setText("" + graph[1].size());
+                slot2.setText(TreeBall.getBellCurve()[1] + "");
                 break;
                 
                 case 2:
-                slot3.setText("" + graph[2].size());
+                slot3.setText(TreeBall.getBellCurve()[2] + "");
                 break;
                 
                 case 3:
-                slot4.setText("" + graph[3].size());
+                slot4.setText(TreeBall.getBellCurve()[3] + "");
                 break;
                 
                 case 4:
-                slot5.setText("" + graph[4].size());
+                slot5.setText(TreeBall.getBellCurve()[4] + "");
                 break;
                 
                 case 5:
-                slot6.setText("" + graph[5].size());
+                slot6.setText(TreeBall.getBellCurve()[5] + "");
                 break;
                 
                 case 6:
-                slot7.setText("" + graph[6].size());
+                slot7.setText(TreeBall.getBellCurve()[6] + "");
                 break;
                 
                 case 7:
-                slot8.setText("" + graph[7].size());
+                slot8.setText(TreeBall.getBellCurve()[7] + "");
                 break;
                 
                 case 8:
-                slot9.setText("" + graph[8].size());
+                slot9.setText(TreeBall.getBellCurve()[8] + "");
                 break;
                 
                 case 9:
-                slot10.setText("" + graph[9].size());
+                slot10.setText(TreeBall.getBellCurve()[9] + "");
                 break;
                 
                 case 10:
-                slot11.setText("" + graph[10].size());
+                slot11.setText(TreeBall.getBellCurve()[10] + "");
                 break;
                 
                 default:
                 break;
             }
+        
+//            slot1.setText(TreeBall.getBellCurve()[0] + "");
+//            slot2.setText(TreeBall.getBellCurve()[1] + "");
+//            slot3.setText(TreeBall.getBellCurve()[2] + "");
+//            slot4.setText(TreeBall.getBellCurve()[3] + "");
+//            slot5.setText(TreeBall.getBellCurve()[4] + "");
+//            slot6.setText(TreeBall.getBellCurve()[5] + "");
+//            slot7.setText(TreeBall.getBellCurve()[6] + "");
+//            slot8.setText(TreeBall.getBellCurve()[7] + "");
+//            slot9.setText(TreeBall.getBellCurve()[8] + "");
+//            slot10.setText(TreeBall.getBellCurve()[9] + "");
+//            slot11.setText(TreeBall.getBellCurve()[10] + "");
         }
     }
     
