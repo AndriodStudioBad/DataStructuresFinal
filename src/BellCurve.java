@@ -9,11 +9,12 @@ public class BellCurve extends javax.swing.JFrame {
     private Thread t, t2, t3, t4, t5, t6;
     private final double coefficient;
     private TreeBall data;
-    
+    private int total;
     private Graph frame;
     
     public BellCurve() {
         initComponents();
+        total = 0; 
         d = 15;
         t = new Thread(ball_one);
         t2 = new Thread(ball_two);
@@ -126,6 +127,8 @@ public class BellCurve extends javax.swing.JFrame {
             }
             y = 1;
             x = 0;
+            total++;
+            tot.setText("Total Balls: " + total);
             data.ProcessData(output);
             flag = false;
             levels = 0;
@@ -205,6 +208,8 @@ public class BellCurve extends javax.swing.JFrame {
             }
             y = 1;
             x = 0;
+            total++;
+            tot.setText("Total Balls: " + total);
             flag = false;
             levels = 0;
             data.ProcessData(output);
@@ -284,6 +289,8 @@ public class BellCurve extends javax.swing.JFrame {
             }
             y = 1;
             x = 0;
+            total++;
+            tot.setText("Total Balls: " + total);
             flag = false;
             levels = 0;
             data.ProcessData(output);
@@ -362,6 +369,8 @@ public class BellCurve extends javax.swing.JFrame {
             }
             y = 1;
             x = 0;
+            total++;
+            tot.setText("Total Balls: " + total);
             flag = false;
             levels = 0;
             data.ProcessData(output);
@@ -441,6 +450,8 @@ public class BellCurve extends javax.swing.JFrame {
             }
             y = 1;
             x = 0;
+            total++;
+            tot.setText("Total Balls: " + total);
             flag = false;
             levels = 0;
             data.ProcessData(output);
@@ -520,6 +531,8 @@ public class BellCurve extends javax.swing.JFrame {
             
             y = 1;
             x = 0;
+            total++;
+            tot.setText("Total Balls: " + total);
             flag = false;
             levels = 0;
             data.ProcessData(output);
@@ -627,9 +640,10 @@ public class BellCurve extends javax.swing.JFrame {
         speedLabel = new javax.swing.JLabel();
         s = new javax.swing.JRadioButton();
         f = new javax.swing.JRadioButton();
+        tot = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Standard Distribution");
+        setTitle("Simulation");
         setMinimumSize(new java.awt.Dimension(690, 600));
         setResizable(false);
         getContentPane().setLayout(null);
@@ -1069,6 +1083,11 @@ public class BellCurve extends javax.swing.JFrame {
         getContentPane().add(f);
         f.setBounds(580, 60, 80, 23);
 
+        tot.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        tot.setText("Total Balls: 0");
+        getContentPane().add(tot);
+        tot.setBounds(20, 40, 210, 30);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -1199,5 +1218,6 @@ public class BellCurve extends javax.swing.JFrame {
     private javax.swing.JLabel row9b4;
     private javax.swing.JRadioButton s;
     private javax.swing.JLabel speedLabel;
+    private javax.swing.JLabel tot;
     // End of variables declaration//GEN-END:variables
 }

@@ -25,23 +25,7 @@ public class Graph extends javax.swing.JFrame {
         d = 15; 
         
         array = DataAnalysis.getGraph();
-        
-        bar1.setSize(bar1.getWidth(), 0);
-        
-        Dimension a = new Dimension(30, 0);
-        bar1.setPreferredSize(a);
-        bar2.setPreferredSize(a);
-        bar3.setPreferredSize(a);
-        bar4.setPreferredSize(a);
-        bar5.setPreferredSize(a);
-        bar6.setPreferredSize(a);
-        bar7.setPreferredSize(a);
-        bar8.setPreferredSize(a);
-        bar9.setPreferredSize(a);
-        bar10.setPreferredSize(a);
-        bar11.setPreferredSize(a);
 
-        
         t = new Thread(updater);
         t2 = new Thread(table);
         t.start();
@@ -88,16 +72,37 @@ public class Graph extends javax.swing.JFrame {
                 divide = 279 / divide;
             
             bar1.setSize(bar1.getWidth(), (int)(graph[0].size() * divide));
+            bar1.setLocation(bar1.getX(), (int)(279-graph[0].size() * divide));
+            
             bar2.setSize(bar1.getWidth(), (int)(graph[1].size() * divide));
+            bar2.setLocation(bar2.getX(), (int)(279-graph[1].size() * divide));
+            
             bar3.setSize(bar1.getWidth(), (int)(graph[2].size() * divide));
+            bar3.setLocation(bar3.getX(), (int)(279-graph[2].size() * divide));
+            
             bar4.setSize(bar1.getWidth(), (int)(graph[3].size() * divide));
+            bar4.setLocation(bar4.getX(), (int)(279-graph[3].size() * divide));
+            
             bar5.setSize(bar1.getWidth(), (int)(graph[4].size() * divide));
+            bar5.setLocation(bar5.getX(), (int)(279-graph[4].size() * divide));
+            
             bar6.setSize(bar1.getWidth(), (int)(graph[5].size() * divide));
+            bar6.setLocation(bar6.getX(), (int)(279-graph[5].size() * divide));
+            
             bar7.setSize(bar1.getWidth(), (int)(graph[6].size() * divide));
+            bar7.setLocation(bar7.getX(), (int)(279-graph[6].size() * divide));
+            
             bar8.setSize(bar1.getWidth(), (int)(graph[7].size() * divide));
+            bar8.setLocation(bar8.getX(), (int)(279-graph[7].size() * divide));
+            
             bar9.setSize(bar1.getWidth(), (int)(graph[8].size() * divide));
+            bar9.setLocation(bar9.getX(), (int)(279-graph[8].size() * divide));
+            
             bar10.setSize(bar1.getWidth(), (int)(graph[9].size() * divide));
+            bar10.setLocation(bar10.getX(), (int)(279-graph[9].size() * divide));
+            
             bar11.setSize(bar1.getWidth(), (int)(graph[10].size() * divide));
+            bar11.setLocation(bar11.getX(), (int)(279-graph[10].size() * divide));
         }
     }
     
