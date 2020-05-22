@@ -194,6 +194,8 @@ public class Graph extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel3 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
@@ -237,6 +239,9 @@ public class Graph extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
 
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -250,6 +255,10 @@ public class Graph extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 336, Short.MAX_VALUE)
         );
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Graph");
@@ -557,23 +566,50 @@ public class Graph extends javax.swing.JFrame {
         jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel1.setText("jLabel1");
+        jLabel1.setText("A bell curve is a graph of a normal (Gaussian) distribution, with a large rounded peak tapering");
+        jLabel1.setToolTipText("");
+        jLabel1.setAutoscrolls(true);
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel6.setText("values of either sides. For example, the ball has around a 0.00097% chance of hitting one of ");
+        jLabel6.setToolTipText("");
+        jLabel6.setAutoscrolls(true);
+        jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel7.setText("away at each end. The values in the center of the graph will be exponentally better then the");
+        jLabel7.setToolTipText("");
+        jLabel7.setAutoscrolls(true);
+        jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jLabel19.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel19.setText("the far ends of the graph.");
+        jLabel19.setToolTipText("");
+        jLabel19.setAutoscrolls(true);
+        jLabel19.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addContainerGap(523, Short.MAX_VALUE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 656, Short.MAX_VALUE)
+            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 656, Short.MAX_VALUE)
+            .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, 656, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(5, 5, 5)
                 .addComponent(jLabel1)
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel19)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel5);
@@ -639,10 +675,13 @@ public class Graph extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
@@ -651,6 +690,8 @@ public class Graph extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel slot1;
     private javax.swing.JLabel slot10;
     private javax.swing.JLabel slot11;

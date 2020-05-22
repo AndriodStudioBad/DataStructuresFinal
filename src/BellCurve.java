@@ -644,7 +644,7 @@ public class BellCurve extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Simulation");
-        setMinimumSize(new java.awt.Dimension(690, 600));
+        setMinimumSize(new java.awt.Dimension(690, 500));
         setResizable(false);
         getContentPane().setLayout(null);
 
